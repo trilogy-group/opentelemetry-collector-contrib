@@ -20,11 +20,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/collector/component/componenttest"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/processor/groupbytraceprocessor/internal/common"
 )
 
 func TestDefaultConfiguration(t *testing.T) {
 	// test
-	c := createDefaultConfig().(*Config)
+	c := createDefaultConfig().(*common.Config)
 
 	// verify
 	assert.Equal(t, defaultNumTraces, c.NumTraces)
@@ -35,7 +36,7 @@ func TestDefaultConfiguration(t *testing.T) {
 }
 
 func TestCreateTestProcessor(t *testing.T) {
-	c := createDefaultConfig().(*Config)
+	c := createDefaultConfig().(*common.Config)
 
 	next := &mockProcessor{}
 
@@ -54,17 +55,17 @@ func TestCreateTestProcessorWithNotImplementedOptions(t *testing.T) {
 
 	// test
 	for _, tt := range []struct {
-		config      *Config
+		config      *common.Config
 		expectedErr error
 	}{
 		{
-			&Config{
+			&common.Config{
 				DiscardOrphans: true,
 			},
 			errDiscardOrphansNotSupported,
 		},
 		{
-			&Config{
+			&common.Config{
 				StoreOnDisk: true,
 			},
 			errDiskStorageNotSupported,

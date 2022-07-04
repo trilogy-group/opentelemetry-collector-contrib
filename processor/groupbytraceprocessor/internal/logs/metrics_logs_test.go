@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package groupbytraceprocessor
+package logs
 
 import (
 	"testing"
@@ -22,12 +22,12 @@ import (
 
 func TestProcessorMetrics(t *testing.T) {
 	expectedViewNames := []string{
-		"processor/groupbytrace/processor_groupbytrace_conf_num_traces",
+		"processor/groupbytrace/processor_groupbytrace_conf_num_logs",
 		"processor/groupbytrace/processor_groupbytrace_num_events_in_queue",
-		"processor/groupbytrace/processor_groupbytrace_num_traces_in_memory",
-		"processor/groupbytrace/processor_groupbytrace_traces_evicted",
-		"processor/groupbytrace/processor_groupbytrace_spans_released",
-		"processor/groupbytrace/processor_groupbytrace_traces_released",
+		"processor/groupbytrace/processor_groupbytrace_num_logs_in_memory",
+		"processor/groupbytrace/processor_groupbytrace_logs_evicted",
+		"processor/groupbytrace/processor_groupbytrace_logrecords_released",
+		"processor/groupbytrace/processor_groupbytrace_logs_released",
 		"processor/groupbytrace/processor_groupbytrace_incomplete_releases",
 		"processor/groupbytrace/processor_groupbytrace_event_latency",
 	}

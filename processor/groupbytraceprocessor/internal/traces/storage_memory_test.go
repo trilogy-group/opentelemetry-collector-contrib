@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // nolint:errcheck
-package groupbytraceprocessor
+package traces
 
 import (
 	"testing"
